@@ -2,3 +2,4 @@ rsa_key.p8
 rsa_key.pub
 preset-instructions.md
 profiles.yml
+uv.lock
