@@ -32,6 +32,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   airbnb:
       +materialized: view # + means building in propeties and not to search for a folder. Its set default materialization to view for all models in this project. 
+      src:
+          +materialized: ephemeral # + means building in propeties and not to search for a folder. Its set default materialization to ephemeral for all models in this folder.
       core:
           dim:
               +materialized: table # + means building in propeties and not to search for a folder. Its set default materialization to table for all models in this folder.
