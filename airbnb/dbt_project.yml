@@ -37,3 +37,7 @@ models:
       core:
           dim:
               +materialized: table # + means building in propeties and not to search for a folder. Its set default materialization to table for all models in this folder.
+
+data_tests:
+    +store_failures: true # store failure in DWH
+    +schema: _test_failures
