@@ -24,6 +24,10 @@ models:
         data_tests:
           - not_null 
 
+      - name : minimum_nights
+        data_tests:
+          - positive_values
+
   - name : dim_hosts_cleansed
     config : 
       contract : 
