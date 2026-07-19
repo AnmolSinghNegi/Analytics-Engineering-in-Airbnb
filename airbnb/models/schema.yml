@@ -17,28 +17,38 @@ models:
       - name : room_type
         data_tests:
           - accepted_values:
-              values: ['Entire home/apt', 'Private room', 'Shared room', 'Hotel room']
+              arguments:
+                values: ['Entire home/apt', 'Private room', 'Shared room', 'Hotel room']
 
       - name: listing_name
         data_tests:
           - not_null 
 
   - name : dim_hosts_cleansed
+    config : 
+      contract : 
+         enforced : true
     columns:
       - name : host_id
+        data_type : integer
         data_tests:
           - not_null
           - unique
-
       - name : host_name
+        data_type : string
         data_tests:
           - not_null
-
-      - name: is_superhost
+      - name : is_superhost
+        data_type : string
         data_tests:
           - accepted_values:
-              values: ['t', 'f']
-              
+              arguments:
+                values: ['t', 'f']
+      - name : updated_at
+        data_type : timestamp
+      - name : created_at
+        data_type : timestamp
+
   - name : fct_reviews
     columns:
       - name : review_id
@@ -61,4 +71,7 @@ models:
       - name : review_sentiment
         data_tests:
           - accepted_values:
-              values: ['positive', 'neutral', 'negative']
+              arguments:
+                values: ['positive', 'neutral', 'negative']
+
+ # Data contracts          
